@@ -1,0 +1,2 @@
+# Ignore Handlebars template files
+box/docgen/*.hbs

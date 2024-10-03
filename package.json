@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "preinstall": "npm install -g tronbox",
+    "postinstall": "npm run git:config",
+    "prestart": "npm install",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "git:config": "npm run git:config:commit:local",
+    "git:config:commit:local": "git config --local commit.template .github/COMMIT_TEMPLATE/commit_template.md",
+    "docify": "npm run prestart && node box/docify.js",
+    "box:compile": "npm run prestart && cd box && tronbox compile",
+    "box:migrate:development": "npm run prestart && cd box && tronbox migrate --network development",
+    "box:migrate:production": "npm run prestart && cd box && tronbox migrate --network production",
+    "box:test": "npm run prestart && cd box && tronbox test"
+  },
+  "keywords": [
+    "Tron-Blockchain",
+    "smart-contract",
+    "TRC20",
+    "ERC20",
+    "tronbox",
+    "TRX",
+    "tron",
+    "crypto",
+    "cryptocurrency",
+    "tokens",
+    "token",
+    "crypto-token"
+  ],
+  "author": "Astitv Singh <https://github.com/astitvsingh>",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "solc": "^0.8.20",
+    "solidity-docgen": "^0.5.17"
+  }
+}

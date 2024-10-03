@@ -1,0 +1,101 @@
+{{#if natspec.title}}
+# {{natspec.title}}
+{{/if}}
+
+{{#if natspec.devdoc}}
+## Description
+
+{{natspec.devdoc}}
+{{else}}
+## Description
+
+`No description available.`
+{{/if}}
+
+---
+
+## Table of Contents
+
+{{#if ownFunctions}}
+- [Functions](#functions)
+  {{#ownFunctions}}
+    {{#if (or (eq visibility "public") (eq visibility "external"))}}
+  - [{{name}}](#{{name}})
+    {{/if}}
+  {{/ownFunctions}}
+{{/if}}
+
+{{#if ownEvents}}
+- [Events](#events)
+  {{#ownEvents}}
+  - [{{name}}](#{{name}})
+  {{/ownEvents}}
+{{/if}}
+
+---
+
+{{#if ownFunctions}}
+## Functions
+
+{{#ownFunctions}}
+  {{#if (or (eq visibility "public") (eq visibility "external"))}}
+### {{name}}
+
+**Visibility**: `{{visibility}}`
+
+{{#if natspec.devdoc}}
+**Description**: {{natspec.devdoc}}
+{{else}}
+**Description**: `No description available.`
+{{/if}}
+
+{{#if natspec.params}}
+**Parameters**:
+{{#natspec.params}}
+- `{{param}}`: {{description}}
+{{/natspec.params}}
+{{else}}
+**Parameters**: `None`
+{{/if}}
+
+{{#if natspec.returns}}
+**Returns**:
+{{#natspec.returns}}
+- `{{param}}`: {{description}}
+{{/natspec.returns}}
+{{else}}
+**Returns**: `None`
+{{/if}}
+
+---
+
+  {{/if}}
+{{/ownFunctions}}
+{{/if}}
+
+{{#if ownEvents}}
+## Events
+
+{{#ownEvents}}
+### {{name}}
+
+**Visibility**: `public`
+
+{{#if natspec.devdoc}}
+**Description**: {{natspec.devdoc}}
+{{else}}
+**Description**: `No description available.`
+{{/if}}
+
+{{#if natspec.params}}
+**Parameters**:
+{{#natspec.params}}
+- `{{param}}`: {{description}}
+{{/natspec.params}}
+{{else}}
+**Parameters**: `None`
+{{/if}}
+
+---
+{{/ownEvents}}
+{{/if}}
